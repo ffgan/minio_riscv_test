@@ -53,9 +53,9 @@ sudo netstat -lntp | grep 2222
 
 ssh -vvvvt root@localhost -p 2222
 
-sshpass -p 'openEuler12#$' scp -o StrictHostKeyChecking=no -P 2222 ./run.sh root@localhost:/root/run.sh
+sshpass -p 'openEuler12#$' scp -o StrictHostKeyChecking=no -P 2222 -vvv ./run.sh root@localhost:/root/run.sh
 
-sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "sh /root/run.sh"
+sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no -vvv  root@localhost -p 2222 "sh /root/run.sh"
 
 podman run -e SERVER_ENDPOINT=host.docker.internal:9000 -e ACCESS_KEY=minioadmin -e SECRET_KEY=minioadmin docker.io/minio/mint:edge
 
