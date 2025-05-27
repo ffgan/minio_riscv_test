@@ -36,12 +36,12 @@ qemu-system-riscv64 -machine virt,pflash0=pflash0,pflash1=pflash1,acpi=off -smp 
 
 echo $?
 
-sleep 120
+sleep 200
 
 ps aux | grep qemu-system-riscv64
 
 
-n="$(netstat -lntp | grep 2222 | wc -l)"
+n="$(sudo netstat -lntp | grep 2222 | wc -l)"
 if [[ n -gt 1 ]]; then
     echo "Virtual machine is running"
 else
