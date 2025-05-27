@@ -36,7 +36,7 @@ qemu-system-riscv64 -machine virt,pflash0=pflash0,pflash1=pflash1,acpi=off -smp 
 
 echo $?
 
-sleep 200
+sleep 300
 
 ps aux | grep qemu-system-riscv64
 
