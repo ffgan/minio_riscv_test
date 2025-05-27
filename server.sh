@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "install deps"
-sudo apt install qemu-kvm qemu-system-riscv64 xz curl podman sshpass -y
+sudo apt install qemu-kvm qemu-system-riscv64 xz-utils curl podman sshpass -y
 
 echo "ready to pull openeuler 24 RV image"
 
