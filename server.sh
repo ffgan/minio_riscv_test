@@ -42,7 +42,7 @@ ps aux | grep qemu-system-riscv64
 
 
 n="$(sudo netstat -lntp | grep 2222 | wc -l)"
-if [[ n -gt 1 ]]; then
+if [[ n -gt 0 ]]; then
     echo "Virtual machine is running"
 else
     echo "Virtual machine is not running"
