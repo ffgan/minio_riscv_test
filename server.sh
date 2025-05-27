@@ -1,6 +1,7 @@
 #! /bin/bash
 
 echo "install deps"
+sudo apt update
 sudo apt install qemu-kvm qemu-system-riscv64 xz-utils curl podman sshpass -y
 
 echo "ready to pull openeuler 24 RV image"
