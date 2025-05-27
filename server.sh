@@ -49,6 +49,10 @@ else
     exit 1
 fi
 
+sudo netstat -lntp | grep 2222
+
+ssh -vvvvt root@localhost -p 2222
+
 sshpass -p 'openEuler12#$' scp -o StrictHostKeyChecking=no -P 2222 ./run.sh root@localhost:/root/run.sh
 
 sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "sh /root/run.sh"
