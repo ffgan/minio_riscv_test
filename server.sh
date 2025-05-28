@@ -55,7 +55,7 @@ sshpass -p 'openEuler12#$' scp -o StrictHostKeyChecking=no -P 2222 ./run.sh root
 
 sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "sh /root/run.sh"
 
-sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "cd /home/john/minio/minio; ucat   minio.log"
+sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "cd /home/john/minio; cat   minio.log"
 
 podman run -e SERVER_ENDPOINT=host.docker.internal:9000 -e ACCESS_KEY=minioadmin -e SECRET_KEY=minioadmin docker.io/minio/mint:edge
 
