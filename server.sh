@@ -39,7 +39,6 @@ sleep 250
 
 ps aux | grep qemu-system-riscv64
 
-
 n="$(sudo netstat -lntp | grep 2222 | wc -l)"
 if [[ n -gt 0 ]]; then
     echo "Virtual machine is running"
@@ -54,13 +53,9 @@ ssh -vvvvt root@localhost -p 2222
 
 sshpass -p 'openEuler12#$' scp -o StrictHostKeyChecking=no -P 2222 -vvv ./run.sh root@localhost:/root/run.sh
 
-sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no -vvv  root@localhost -p 2222 "sh /root/run.sh"
+sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no -vvv root@localhost -p 2222 "sh /root/run.sh"
 
-
-
-sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no -vvv  root@localhost -p 2222 "cd minio;cat   minio.log"
-
-
+sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no -vvv root@localhost -p 2222 "cd /home/john/minio/minio; ucat   minio.log"
 
 podman run -e SERVER_ENDPOINT=host.docker.internal:9000 -e ACCESS_KEY=minioadmin -e SECRET_KEY=minioadmin docker.io/minio/mint:edge
 

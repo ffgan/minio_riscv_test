@@ -9,6 +9,9 @@ systemctl start chronyd
 date
 chronyc makestep
 
+adduser john
+su john
+
 git clone https://github.com/minio/minio.git
 cd minio
 git checkout RELEASE.2025-04-22T22-12-26Z
@@ -28,11 +31,20 @@ sed -i 's/loongarch64)/loongarch64 | riscv64)/g' buildscripts/checkdeps.sh
 
 make
 
+echo "finished building minio"
+
+echo "ready to run make test"
+make test
+
+echo "make test finished"
+
+echo "ready to run mint"
+
 file minio
 
 chronyc makestep
 date
 
-./minio server ~/data --console-address ":9001" > minio.log 2>&1 &
+./minio server ~/data --console-address ":9001" >minio.log 2>&1 &
 
 sleep 10

@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: List files in the repository
+      - name: make && make test && run mint
         run: |
           ls ${{ github.workspace }}
           bash ./server.sh
