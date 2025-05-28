@@ -29,7 +29,7 @@ go mod tidy
 
 sed -i 's/loongarch64)/loongarch64 | riscv64)/g' buildscripts/checkdeps.sh
 
-sed -i 's/timeout=10m/timeout=60m/' Makefile
+sed -i 's/timeout=10m/timeout=200m/' Makefile
 
 sed -i '/@MINIO_API_REQUESTS_MAX=10000 CGO_ENABLED=0 go test -v -tags kqueue,dev .\/.../ s/$/ -timeout 0/' Makefile
 
