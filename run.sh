@@ -33,6 +33,15 @@ sed -i 's/timeout=10m/timeout=2000m/' Makefile
 
 sed -i '/@MINIO_API_REQUESTS_MAX=10000 CGO_ENABLED=0 go test -v -tags kqueue,dev .\/.../ s/$/ -timeout 0/' Makefile
 
+free -mh
+df -mh
+dd if=/dev/zero of=/swapfile count=8192 bs=1M
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+
+
+
 make
 
 echo "finished building minio"
