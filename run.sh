@@ -28,7 +28,8 @@ swapon /swapfile
 
 su john <<EOF
 cd /home/john
-
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
 whoami
 
 pwd
