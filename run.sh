@@ -12,11 +12,14 @@ date
 chronyc makestep
 
 useradd -m -s /bin/bash john
-echo "john:test" | chpasswd
+echo "john:testtesttest" | chpasswd
 
 su john
 
-cd
+cd /home/john
+
+whoami
+
 pwd
 
 git clone https://github.com/minio/minio.git
