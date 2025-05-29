@@ -1,3 +1,5 @@
+#! /bin/bash
+set -e
 uname -m
 
 date -s "2025-05-01 10:00:00"
@@ -9,10 +11,13 @@ systemctl start chronyd
 date
 chronyc makestep
 
-adduser john
+useradd -m -s /bin/bash john
+echo "john:test" | chpasswd
+
 su john
 
 cd
+pwd
 
 git clone https://github.com/minio/minio.git
 cd minio
@@ -42,8 +47,6 @@ chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
 
-
-
 make
 
 echo "finished building minio"
@@ -59,6 +62,10 @@ file minio
 
 chronyc makestep
 date
+
+whoami
+
+pwd
 
 ./minio server ~/data --console-address ":9001" >minio.log 2>&1 &
 
