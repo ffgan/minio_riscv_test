@@ -12,6 +12,8 @@ chronyc makestep
 adduser john
 su john
 
+cd
+
 git clone https://github.com/minio/minio.git
 cd minio
 git checkout RELEASE.2025-04-22T22-12-26Z
