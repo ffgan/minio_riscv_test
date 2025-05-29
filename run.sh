@@ -30,6 +30,7 @@ su john <<EOF
 cd /home/john
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:/home/John/minio/.bin
 whoami
 
 pwd
