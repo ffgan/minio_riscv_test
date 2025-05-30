@@ -51,14 +51,6 @@ go env
 
 go env GOPATH # 此时应该显示 /home/john/go
 
-go mod tidy
-
-sed -i 's/loongarch64)/loongarch64 | riscv64)/g' buildscripts/checkdeps.sh
-
-sed -i 's/timeout=10m/timeout=2000m/' Makefile
-
-sed -i '/@MINIO_API_REQUESTS_MAX=10000 CGO_ENABLED=0 go test -v -tags kqueue,dev .\/.../ s/$/ -timeout 0/' Makefile
-
 
 
 ls -l $(go env GOPATH)/bin # 检查此时GOPATH/bin是否为空
@@ -77,6 +69,18 @@ ls -l $(go env GOPATH)/bin/stringer
 msgp -version
 stringer -version
 echo "msgp and stringer installed successfully"
+
+
+go mod tidy
+
+sed -i 's/loongarch64)/loongarch64 | riscv64)/g' buildscripts/checkdeps.sh
+
+sed -i 's/timeout=10m/timeout=2000m/' Makefile
+
+sed -i '/@MINIO_API_REQUESTS_MAX=10000 CGO_ENABLED=0 go test -v -tags kqueue,dev .\/.../ s/$/ -timeout 0/' Makefile
+
+
+
 
 
 
