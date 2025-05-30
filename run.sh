@@ -2,7 +2,7 @@
 set -e
 uname -m
 
-date -s "2025-05-01 10:00:00"
+date -s "2025-05-28 10:00:00"
 
 dnf install chrony git make tar -y
 timedatectl set-timezone "Asia/Shanghai"
