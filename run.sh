@@ -79,6 +79,9 @@ chmod +x $(go env GOPATH)/bin/stringer
 ls -l $(go env GOPATH)/bin/msgp
 ls -l $(go env GOPATH)/bin/stringer
 
+msgp -version
+stringer -version
+echo "msgp and stringer installed successfully"
 
 make test
 
