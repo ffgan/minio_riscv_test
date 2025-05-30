@@ -31,6 +31,9 @@ cd /home/john
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/home/John/minio/.bin
+
+
+
 whoami
 
 pwd
@@ -56,6 +59,20 @@ make
 echo "finished building minio"
 
 echo "ready to run make test"
+
+ls -l $(go env GOPATH)/bin
+
+go install github.com/tinylib/msgp/cmd/msgp@latest
+go install golang.org/x/tools/cmd/stringer@latest
+
+chmod +x $(go env GOPATH)/bin/msgp
+chmod +x $(go env GOPATH)/bin/stringer
+
+ls -l $(go env GOPATH)/bin/msgp
+ls -l $(go env GOPATH)/bin/stringer
+
+
+
 make test
 
 echo "make test finished"
