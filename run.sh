@@ -51,7 +51,7 @@ go env
 
 go env GOPATH # 此时应该显示 /home/john/go
 
-
+export GOPATH=/home/john/go
 
 ls -l $(go env GOPATH)/bin # 检查此时GOPATH/bin是否为空
 
