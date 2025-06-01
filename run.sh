@@ -14,8 +14,6 @@ echo "PATH: $PATH"
 
 whoami
 
-pwd
-
 git clone https://github.com/minio/minio.git
 cd minio
 
@@ -26,15 +24,17 @@ git checkout RELEASE.2025-04-22T22-12-26Z
 
 go version
 
-go env # 此时应该显示 /home/john/go
-
-go mod tidy
+go env
 
 sed -i 's/loongarch64)/loongarch64 | riscv64)/g' buildscripts/checkdeps.sh
 
 sed -i 's/timeout=10m/timeout=2000m/' Makefile
 
-sed -i '/@MINIO_API_REQUESTS_MAX=10000 CGO_ENABLED=0 go test -v -tags kqueue,dev .\/.../ s/$/ -timeout 0/' Makefile
+sed -i 's/go test -v -tags kqueue,dev \.\/\.\.\./go test -v -timeout 0 -tags kqueue,dev \.\/\.\.\./g' Makefile
+
+cat Makefile
+
+go mod tidy
 
 make
 
