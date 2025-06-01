@@ -30,10 +30,6 @@ go env # 此时应该显示 /home/john/go
 
 go mod tidy
 
-go install tool
-
-stringer
-
 sed -i 's/loongarch64)/loongarch64 | riscv64)/g' buildscripts/checkdeps.sh
 
 sed -i 's/timeout=10m/timeout=2000m/' Makefile
@@ -54,7 +50,6 @@ echo "ready to run mint"
 
 file minio
 
-chronyc makestep
 date
 
 whoami

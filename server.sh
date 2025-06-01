@@ -51,6 +51,8 @@ sudo netstat -lntp | grep 2222
 
 # ssh root@localhost -p 2222
 
+rm -rf ~/.ssh/known_hosts
+
 sshpass -p 'openEuler12#$' scp -o StrictHostKeyChecking=no -P 2222 ./init.sh root@localhost:/root/init.sh
 sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "sh /root/init.sh"
 
