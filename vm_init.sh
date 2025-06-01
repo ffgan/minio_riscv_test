@@ -1,3 +1,4 @@
+#! /bin/bash
 # create user and grant sudo permission
 useradd -m -s /bin/bash john
 echo "john:test123@#" | chpasswd

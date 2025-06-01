@@ -10,5 +10,18 @@ jobs:
       - name: make && make test && run mint
         run: |
           ls ${{ github.workspace }}
-          bash ./server.sh
+          make build
+      - name: make test
+        run: |
+          echo "Running tests..."
+          make test
+      - name: run mint
+        run: |
+          echo "Running mint..."
+          make mint
+      - name: clean up
+        run: |
+          echo "Cleaning up..."
+          make clean
+
       - run: echo "🍏 This job's status is ${{ job.status }}."

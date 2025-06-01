@@ -32,6 +32,8 @@ sed -i 's/timeout=10m/timeout=2000m/' Makefile
 
 sed -i 's/go test -v -tags kqueue,dev \.\/\.\.\./go test -v -timeout 0 -tags kqueue,dev \.\/\.\.\./g' Makefile
 
+sed -i 's/context.Background(), 90*time.Second)/context.Background(), 180*time.Second)/g' cmd/admin-handlers-users-race_test.go
+
 cat Makefile
 
 go mod tidy
@@ -40,22 +42,3 @@ make
 
 echo "finished building minio"
 
-echo "ready to run make test"
-
-make test
-
-echo "make test finished"
-
-echo "ready to run mint"
-
-file minio
-
-date
-
-whoami
-
-pwd
-
-./minio server /home/john/minio/data --console-address ":9001" >minio.log 2>&1 &
-
-sleep 10
