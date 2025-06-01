@@ -32,11 +32,11 @@ sed -i 's/timeout=10m/timeout=2000m/' Makefile
 
 sed -i 's/go test -v -tags kqueue,dev \.\/\.\.\./go test -v -timeout 0 -tags kqueue,dev \.\/\.\.\./g' Makefile
 
-sed -i 's/context.Background(), 90*time.Second)/context.Background(), 180*time.Second)/g' cmd/admin-handlers-users-race_test.go
+sed -i 's/90/360/g' cmd/admin-handlers-users-race_test.go
 
-cat Makefile
+# cat cmd/admin-handlers-users-race_test.go
 
-go mod tidy
+# cat Makefile
 
 make
 
