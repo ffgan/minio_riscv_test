@@ -49,11 +49,13 @@ fi
 
 sudo netstat -lntp | grep 2222
 
-ssh root@localhost -p 2222
+# ssh root@localhost -p 2222
 
-sshpass -p 'openEuler12#$' scp -o StrictHostKeyChecking=no -P 2222 ./run.sh root@localhost:/root/run.sh
+sshpass -p 'openEuler12#$' scp -o StrictHostKeyChecking=no -P 2222 ./init.sh root@localhost:/root/init.sh
+sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "sh /root/init.sh"
 
-sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "sh /root/run.sh"
+sshpass -p 'test123@#' scp -o StrictHostKeyChecking=no -P 2222 ./run.sh john@localhost:/home/john/run.sh
+sshpass -p 'test123@#' ssh -o StrictHostKeyChecking=no john@localhost -p 2222 "bash /home/john/run.sh"
 
 sshpass -p 'openEuler12#$' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 "cd /home/john/minio; cat   minio.log"
 
@@ -62,6 +64,6 @@ podman run -e SERVER_ENDPOINT=host.docker.internal:9000 -e ACCESS_KEY=minioadmin
 ps aux | grep qemu-system-riscv64 | awk '{print $2}' | xargs kill -9
 echo "virtual machine stopped"
 echo "clean up"
-rm -rf RISCV_VIRT_VARS.fd RISCV_VIRT_CODE.fd openEuler-24.03-LTS-riscv64.qcow2 openEuler-24.03-LTS-riscv64.qcow2.xz
+# rm -rf RISCV_VIRT_VARS.fd RISCV_VIRT_CODE.fd openEuler-24.03-LTS-riscv64.qcow2 openEuler-24.03-LTS-riscv64.qcow2.xz
 echo "clean up done"
 echo "all done"
