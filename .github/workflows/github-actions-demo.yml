@@ -11,7 +11,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
           make build
-      - name: make test
+      - name: make test && make test-race
         run: |
           echo "Running tests..."
           make test
@@ -19,9 +19,5 @@ jobs:
         run: |
           echo "Running mint..."
           make mint
-      - name: clean up
-        run: |
-          echo "Cleaning up..."
-          make clean
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
