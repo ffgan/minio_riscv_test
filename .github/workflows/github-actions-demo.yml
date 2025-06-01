@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: make && make test && run mint
+      - name: set up Go
         run: |
           ls ${{ github.workspace }}
           make build
