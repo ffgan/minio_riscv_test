@@ -14,19 +14,19 @@ echo "PATH: $PATH"
 
 whoami
 
-git clone https://github.com/minio/minio.git
+git clone https://github.com/ffgan/minio.git
 cd minio
 
 pwd
 ls -l
 
-git checkout RELEASE.2025-04-22T22-12-26Z
+git checkout master
 
 go version
 
 go env
 
-sed -i 's/loongarch64)/loongarch64 | riscv64)/g' buildscripts/checkdeps.sh
+# sed -i 's/loongarch64)/loongarch64 | riscv64)/g' buildscripts/checkdeps.sh
 
 sed -i 's/timeout=10m/timeout=2000m/' Makefile
 
